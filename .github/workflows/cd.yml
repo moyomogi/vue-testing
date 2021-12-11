@@ -14,9 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Generate
-        run: yarn generate
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
