@@ -1,27 +1,26 @@
 header, .content, footer {
   display: block;
 }
-header {
-  flood-color: aqua;
-}
-footer {
-  flood-color: aqua;
-}
 html {
-  background-color: #cae5ff;
+  background-color: #f3f3f3;
   font-family: 'Noto Serif Japanese', sans-serif;
 }
 
 body {
+  background-color: #ddfff4;
   width: 600px;
   margin: 0 auto;
   padding: 0 20px 20px 20px;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   margin: 0;
   padding: 20px 0;
-  color: #0062be;
+  color: #00caaf;
 }
 
 .demo {
