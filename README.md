@@ -6,7 +6,7 @@
 # Vue Testing
 > Vue.js のテストです。  
 
-<img src="https://i.imgur.com/Be1TYrP.png" title="midori" alt="midori" width="240">  
+<img src="https://i.imgur.com/Be1TYrP.png" title="midori" alt="mutsuki" width="180">  
 
 ## TODO
 - [ ] Vue.js の component を使ってみる。
