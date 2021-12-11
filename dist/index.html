@@ -1,53 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="jp">
 
 <head>
   <meta charset="utf-8">
   <title>Vue Testing</title>
+
+  <link rel="icon" href="assets/favicon.ico" type="image/vnd.microsoft.icon">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
   <link href="assets/style.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
-  <script src="https://unpkg.com/vue@next"></script>
+
   <header>
-    <h1>Vue Testing</h1>
+    <a href="#"><h1>Vue Testing</h1></a>
   </header>
+
+  <h2>advertisement</h2>
+  <div class="youtube">
+    <iframe src="https://www.youtube.com/embed/0KFPtliRn_4" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
 
   <div class="content">
     <!-- counter -->
+    <h2>counter</h2>
     <div id="counter" class="demo">
       Counter: {{ counter }}
       <!-- <button v-on:click="stopCounter">Stop Counter</button> -->
     </div>
 
     <!-- attribute-binding -->
+    <h2>attribute-binding</h2>
     <div id="attribute-binding">
       <span v-bind:title="message">
         [Hover to see if a bundle has been made.]
       </span>
     </div>
+    <br>
 
     <!-- event-handling -->
+    <h2>event-handling</h2>
     <div id="event-handling">
       <p>{{ message }}</p>
-      <button v-on:click="reverseMessage">Reverse Message</button>
+      <button class="pure-button pure-button-primary" v-on:click="reverseMessage">Reverse Message</button>
     </div>
+    <br>
 
     <!-- two-way-binding -->
+    <h2>two-way-binding</h2>
     <div id="two-way-binding">
-      <p>{{ message }}</p>
-      <input v-model="message" />
+      <form class="pure-form">
+        <fieldset>
+          <legend>{{ message }}</legend>
+          <input v-model="message" />
+        </fieldset>
+      </form>
     </div>
+    <br>
 
     <!-- conditional-rendering -->
+    <h2>conditional-rendering</h2>
     <div id="conditional-rendering">
       <span v-if="seen">seen == true</span>
     </div>
+    <br>
 
     <!-- components-app -->
+    <h2>components-app</h2>
     <div id="components-app" class="demo">
       <ol>
         <todo-item
@@ -146,9 +177,10 @@
 
   </script>
 
-  <footer>
+  <!-- <footer>
     <p>- footer -</p>
-  </footer>
+  </footer> -->
+
 </body>
 
 </html>
