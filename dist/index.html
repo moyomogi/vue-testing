@@ -2,6 +2,7 @@
 <html lang="jp">
 
 <head>
+
   <meta charset="utf-8">
   <title>Vue Testing</title>
 
@@ -23,173 +24,264 @@
 <body>
 
   <header>
-    <a href="#"><h1>Vue Testing</h1></a>
-    <a href="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml"><img
-        src="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml/badge.svg"></a>
-    <a href="https://github.com/moyomogi/vue-testing"><img src="https://img.shields.io/github/last-commit/moyomogi/vue-testing"></a>
+    <a href="#">
+      <h1>Vue Testing</h1>
+    </a>
+    <a href="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml">
+      <img src="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml/badge.svg">
+    </a>
+    <a href="https://github.com/moyomogi/vue-testing">
+      <img src="https://img.shields.io/github/last-commit/moyomogi/vue-testing">
+    </a>
   </header>
   <br>
 
-  <h2>advertisement</h2>
-  <div class="youtube">
-    <iframe src="https://www.youtube.com/embed/0KFPtliRn_4" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-  <a href="https://apps.apple.com/jp/app/%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96/id1515877221" v-if="checkDevice=='mobile'">
-    <img class="ios-play-m" src="assets/ios-play.png" />
-  </a>
-  <a href="https://play.google.com/store/apps/details?id=com.YostarJP.BlueArchive">
-    <img class="google-play-m" src="assets/google-play.png" />
-  </a>
-
   <div class="content">
+
+    <!-- INDEX -->
+    <h2>INDEX</h2>
+    <div class="pure-menu custom-restricted-width">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item pure-menu-selected">
+          <a href="#advertisement" class="pure-menu-link">advertisement</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#counter" class="pure-menu-link">counter</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#reverse-msg" class="pure-menu-link">reverse-msg</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#two-way-binding" class="pure-menu-link">two-way-binding</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#prime-factorize" class="pure-menu-link">prime-factorize</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#math" class="pure-menu-link">math</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- advertisement -->
+    <div id="advertisement">
+      <h2>advertisement</h2>
+      <div @click="adToggle">{{ visible ? 'Ｖ' : '＞' }}</div>
+      <div v-if="visible">
+        <iframe width="480" height="270" src="https://www.youtube.com/embed/0KFPtliRn_4" frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe><br>
+        <a href="https://apps.apple.com/jp/app/%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96/id1515877221">
+          <img class="ios-play-m" src="assets/ios-play.png" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.YostarJP.BlueArchive">
+          <img class="google-play-m" src="assets/google-play.png" />
+        </a>
+      </div>
+    </div>
+
     <!-- counter -->
-    <h2>counter</h2>
-    <div id="counter" class="demo">
-      Counter: {{ counter }}
-      <!-- <button v-on:click="stopCounter">Stop Counter</button> -->
+    <div id="counter">
+      <h2>counter</h2>
+      <div class="demo">{{ cnt }}</div>
+      <button class="pure-button pure-button-primary" @click="toggleCounter">
+        {{ active ? 'Stop' : 'Start' }}
+      </button>
     </div>
+    <br><br>
 
-    <!-- attribute-binding -->
-    <h2>attribute-binding</h2>
-    <div class="demo" id="attribute-binding">
-      <span v-bind:title="message">
-        [Hover to see if a bundle has been made.]
-      </span>
+    <!-- reverse-msg -->
+    <div id="reverse-msg">
+      <h2>{{ msg }}</h2>
+      <button class="pure-button pure-button-primary" @click="reverseMessage">
+        Reverse
+      </button>
     </div>
-    <br>
-
-    <!-- event-handling -->
-    <h2>event-handling</h2>
-    <div id="event-handling">
-      <p class="demo">{{ message }}</p>
-      <button class="pure-button pure-button-primary" v-on:click="reverseMessage">Reverse Message</button>
-    </div>
-    <br>
+    <br><br>
 
     <!-- two-way-binding -->
-    <h2>two-way-binding</h2>
     <div id="two-way-binding">
+      <h2>{{ msg }}</h2>
       <form class="pure-form">
         <fieldset>
-          <legend>{{ message }}</legend>
-          <input v-model="message" />
+          <input v-model="msg" />
         </fieldset>
       </form>
     </div>
     <br>
 
     <!-- conditional-rendering -->
-    <h2>conditional-rendering</h2>
-    <div class="demo" id="conditional-rendering">
-      <span v-if="seen">seen == true</span>
+    <!-- <div id="conditional-rendering">
+      <h2>{{ visible ? 'conditional-rendering' : '' }}</h2>
+      <label class="pure-checkbox">
+        <input type="checkbox" id="checkbox" v-model="visible" />
+      </label>
+      <label for="checkbox">visible</label>
+    </div> -->
+
+    <!-- prime-factorize -->
+    <div id="prime-factorize">
+      <h2>prime-factorize</h2>
+      <form class="pure-form">
+        <fieldset>
+          <input v-model.number="x" />
+        </fieldset>
+      </form>
+      <div class="demo">
+        <ul>
+          <!-- <parse-factors v-for="factor in factors" :_factor="factor" :key="factor"></parse-factors> -->
+          <li v-for="factor in factors" :key="factor">
+            {{ factor }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- math -->
+    <div id="math">
+      <h2>math</h2>
+      <form class="pure-form pure-form-stacked">
+        <fieldset>
+          <label>a:</label>
+          <input v-model.number="a" />
+          <label>b:</label>
+          <input v-model.number="b" />
+        </fieldset>
+      </form>
+      <table class="pure-table">
+        <thead>
+          <tr>
+            <th>gcd(a, b)</th>
+            <th>lcm(a, b)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ gcd }}</td>
+            <td>{{ lcm }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <br>
 
-    <!-- components-app -->
-    <h2>components-app</h2>
-    <div id="components-app" class="demo">
-      <ol>
-        <todo-item
-          v-for="item in groceryList"
-          v-bind:todo="item"
-          v-bind:key="item.id"
-        ></todo-item>
-      </ol>
-    </div>
   </div>
 
   <script language="javascript" type="text/javascript">
 
-    // Counter
-    const Counter = {
-        data() {
-          return {
-            counter: 0
+    // advertisement
+    Vue.createApp({
+      data() {
+        return {
+          visible: false
+        }
+      },
+      methods: {
+        adToggle() {
+          this.visible = !this.visible
+        }
+      }
+    }).mount('#advertisement')
+
+    // counter
+    Vue.createApp({
+      data() {
+        return {
+          cnt: 0, active: true
+        }
+      },
+      mounted() {
+        setInterval(() => { this.cnt += this.active }, 1000)
+      },
+      methods: {
+        toggleCounter() {
+          this.active = !this.active
+        }
+      }
+    }).mount('#counter')
+
+    // reverse-msg
+    Vue.createApp({
+      data() {
+        return {
+          msg: 'reverse-msg'
+        }
+      },
+      methods: {
+        reverseMessage() {
+          this.msg = this.msg.split('').reverse().join('')
+        }
+      }
+    }).mount('#reverse-msg')
+
+    // two-way-binding
+    Vue.createApp({
+      data() {
+        return {
+          msg: 'two-way-binding'
+        }
+      }
+    }).mount('#two-way-binding')
+
+    // conditional-rendering
+    // Vue.createApp({
+    //   data() {
+    //     return {
+    //       visible: true
+    //     }
+    //   }
+    // }).mount('#conditional-rendering')
+
+    // prime-factorize
+    const app = Vue.createApp({
+      data() {
+        return {
+          x: 0, _factors: []
+        }
+      },
+      computed: {
+        factors() {
+          let _x = this.x
+          this._factors = []
+          for (let i = 2; i * i < _x; i++) {
+            if (_x % i == 0) {
+              do {
+                _x /= i
+                this._factors.push(i)
+              } while (_x % i == 0)
+            }
           }
+          if (_x != 1) this._factors.push(_x)
+          return this._factors
+        }
+      }
+    })
+    // app.component('parse-factors', {
+    //   props: ['_factor'],
+    //   template: `<li>{{ _factor }}</li>`
+    // })
+    app.mount('#prime-factorize')
+
+    // math
+    const _gcd = (a, b) => b ? _gcd(b, a % b) : a
+    Vue.createApp({
+      data() {
+        return {
+          a: 6, b: 337
+        }
+      },
+      computed: {
+        gcd() {
+          return _gcd(this.a, this.b)
         },
-        mounted() {
-          setInterval(() => {
-            this.counter++
-          }, 1000)
+        lcm() {
+          const g = _gcd(this.a, this.b)
+          return g == 0 ? 0 : this.a * this.b / g
         }
       }
-      Vue.createApp(Counter).mount('#counter')
-
-      // AttributeBinding
-      const AttributeBinding = {
-        data() {
-          return {
-            message: 'You loaded this page on ' + new Date().toLocaleString()
-          }
-        }
-      }
-      Vue.createApp(AttributeBinding).mount('#attribute-binding')
-
-      // EventHandling
-      const EventHandling = {
-        data() {
-          return {
-            message: 'reverse_message'
-          }
-        },
-        methods: {
-          reverseMessage() {
-            this.message = this.message
-              .split('')
-              .reverse()
-              .join('')
-          }
-        }
-      }
-
-      Vue.createApp(EventHandling).mount('#event-handling')
-
-      // TwoWayBinding
-      const TwoWayBinding = {
-        data() {
-          return {
-            message: 'two_way_binding'
-          }
-        }
-      }
-      Vue.createApp(TwoWayBinding).mount('#two-way-binding')
-
-      // ConditionalRendering
-      const ConditionalRendering = {
-        data() {
-          return {
-            seen: true
-          }
-        }
-      }
-      Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
-
-      // ComponentsApp
-      const ComponentsApp = {
-        data() {
-          return {
-            groceryList: [
-              { id: 0, text: 'Vegetables' },
-              { id: 1, text: 'Cheese' },
-              { id: 2, text: 'Whatever else humans are supposed to eat' }
-            ]
-          }
-        }
-      }
-      const app = Vue.createApp(ComponentsApp)
-      app.component('todo-item', {
-        props: ['todo'],
-        template: `<li>{{ todo.text }}</li>`
-      })
-      app.mount('#components-app')
+    }).mount('#math')
 
   </script>
-
-  <!-- <footer>
-    <p>- footer -</p>
-  </footer> -->
 
 </body>
 
