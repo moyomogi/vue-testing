@@ -12,6 +12,12 @@ body {
   padding: 0 28px 28px 28px;
 }
 
+#right {
+  float: right;
+  width: 140px;
+  padding: 7px 24px;
+}
+
 a {
   text-decoration: none;
 }
@@ -23,6 +29,7 @@ h1 {
 
 .demo {
   font-family: sans-serif;
+  background-color: #fff;
   border: 1px solid #222;
   border-radius: 2px;
   padding: 20px 30px;
