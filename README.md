@@ -3,7 +3,7 @@
 [![last-commit](https://img.shields.io/github/last-commit/moyomogi/vue-testing)](https://github.com/moyomogi/vue-testing/commits/master)
 [![license](https://img.shields.io/badge/license-CC0-blue)](https://creativecommons.org/publicdomain/zero/1.0/deed.ja)
 
-# :school_satchel: Vue Testing
+# :christmas_tree: Vue Testing
 > Vue.js のテストです。  
 
 <img src="https://i.imgur.com/Be1TYrP.png" title="midori" alt="mutsuki" width="180">  
