@@ -27,6 +27,10 @@ h1 {
   color: #00caaf;
 }
 
+td {
+  background-color: #ff0000;
+}
+
 .demo {
   font-family: sans-serif;
   background-color: #fff;
