@@ -48,9 +48,6 @@
           <a href="#counter" class="pure-menu-link">counter</a>
         </li>
         <li class="pure-menu-item">
-          <a href="#two-way-binding" class="pure-menu-link">two-way-binding</a>
-        </li>
-        <li class="pure-menu-item">
           <a href="#prime-factorize" class="pure-menu-link">prime-factorize</a>
         </li>
         <li class="pure-menu-item">
@@ -70,34 +67,34 @@
         <input type="checkbox" id="ad-checkbox" v-model="visible" />
       </label>
       <label for="ad-checkbox"> visible</label>
-      <div v-if="visible">
-        <input type="radio" id="ad-option-one" value="one" v-model="adOption" />
+      <div v-show="visible">
+        <input type="radio" id="ad-option-one" value="op-one" v-model="adOption" />
         <label for="ad-option-one" class="pure-radio">【ブルアカ】2nd PV</label><br>
-        <input type="radio" id="ad-option-two" value="two" v-model="adOption" />
+        <input type="radio" id="ad-option-two" value="op-two" v-model="adOption" />
         <label for="ad-option-two" class="pure-radio">【ブルアカ】「夏空のウィッシュリスト」イベントPV</label><br>
-        <input type="radio" id="ad-option-three" value="three" v-model="adOption" />
+        <input type="radio" id="ad-option-three" value="op-three" v-model="adOption" />
         <label for="ad-option-three" class="pure-radio">【ブルアカ】アロナちゃんねる #18</label><br>
         <br>
-        <div v-if="adOption=='one'">
+        <div v-show="adOption=='op-one'">
           <iframe width="480" height="270" src="https://www.youtube.com/embed/cE1ePjq5ZSs"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
-        <div v-else-if="adOption=='two'">
+        <div v-show="adOption=='op-two'">
           <iframe width="480" height="270" src="https://www.youtube.com/embed/TcHq_NQsmIA"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
-        <div v-else>
+        <div v-show="adOption=='op-three'">
           <iframe width="480" height="270" src="https://www.youtube.com/embed/7k1sRGMxKkI"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
         <br>
-        <a href="https://apps.apple.com/jp/primeFactorizeApp/%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96/id1515877221">
+        <a href="https://apps.apple.com/jp/app/%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96/id1515877221">
           <img src="assets/ios-play.png" />
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.YostarJP.BlueArchive">
@@ -117,30 +114,19 @@
     </div>
     <br><br>
 
-    <!-- two-way-binding -->
-    <div id="two-way-binding">
-      <h2>{{ msg }}</h2>
-      <form class="pure-form">
-        <fieldset>
-          <input v-model="msg" />
-        </fieldset>
-      </form>
-    </div>
-    <br>
-
     <!-- prime-factorize -->
     <div id="prime-factorize">
       <h2>prime-factorize</h2>
-      <p v-if="tooLargeNumber">Error: Too large number!</p>
       <form class="pure-form">
         <fieldset>
           <input v-model.number="x" />
         </fieldset>
       </form>
+      <p v-if="isLarge">Error: Too large number!</p>
       <div class="demo">
         num: {{ mFactors.length }}
         <ul>
-          <todo-item v-for="factor in factors" :m-factor="factor" :key="factor"></todo-item>
+          <for-factors v-for="factor in factors" :m-factor="factor" :key="factor"></for-factors>
         </ul>
       </div>
     </div>
@@ -156,6 +142,7 @@
           <input v-model.number="b" />
         </fieldset>
       </form>
+      <p v-if="isLarge">Error: Too large number!</p>
       <table class="pure-table">
         <thead>
           <tr>
@@ -178,15 +165,13 @@
   <script language="javascript" type="text/javascript">
 
     // advertisement
-    const RadioApp = Vue.createApp({
+    Vue.createApp({
       data() {
         return {
-          visible: false,
-          adOption: 'one'
+          visible: false, adOption: 'op-one'
         }
       },
-    })
-    RadioApp.mount('#advertisement')
+    }).mount('#advertisement')
 
     // counter
     Vue.createApp({
@@ -205,27 +190,18 @@
       }
     }).mount('#counter')
 
-    // two-way-binding
-    Vue.createApp({
-      data() {
-        return {
-          msg: 'two-way-binding'
-        }
-      }
-    }).mount('#two-way-binding')
-
     // prime-factorize
     const primeFactorizeApp = Vue.createApp({
       data() {
         return {
-          x: 7007, tooLargeNumber: false, mFactors: []
+          x: 7007, isLarge: false, mFactors: []
         }
       },
       computed: {
         factors() {
           this.mFactors.splice(0)
-          this.tooLargeNumber = this.x > 100000000000000
-          if (!this.x || this.tooLargeNumber) return []
+          this.isLarge = this.x > 100000000000000
+          if (!this.x || this.isLarge) return []
           let mX = this.x
           if (this.x < 0) {
             this.mFactors.push(-1)
@@ -248,7 +224,7 @@
         }
       }
     })
-    primeFactorizeApp.component('todo-item', {
+    primeFactorizeApp.component('for-factors', {
       props: ['mFactor'],
       template: `<li>{{ mFactor }}</li>`
     })
@@ -259,14 +235,18 @@
     Vue.createApp({
       data() {
         return {
-          a: 6, b: 337
+          a: 6, b: 337, isLarge: false
         }
       },
       computed: {
         gcd() {
+          this.isLarge = this.a > 100000000000000 || this.b > 100000000000000
+          if (this.isLarge) return 0
           return myGcd(this.a, this.b)
         },
         lcm() {
+          this.isLarge = this.a > 100000000000000 || this.b > 100000000000000
+          if (this.isLarge) return 0
           const g = myGcd(this.a, this.b)
           return g == 0 ? 0 : this.a * this.b / g
         }

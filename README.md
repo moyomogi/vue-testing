@@ -12,7 +12,10 @@
 - [x] Vue.js の component を使ってみる。  
 - [x] CONTENTS を右に移動したい。  
 
-## :thought_balloon: Notes
+## :eyes: つまづきポイント
+- [Vue.js は内部プロパティに、アンダーバーから始まる変数名を使っている](https://hafilog.com/vue-underscore-problem)ので、衝突をさけるため、変数はアンダーバーから始めない。
+
+## :thought_balloon: 備考
 - メインのコードは [dist/index.html](https://github.com/moyomogi/vue-testing/blob/master/dist/index.html) にあります。  
 - UI は [Pure.css](https://purecss.io) を用いて作られています。  
 - :art: 使用画像
