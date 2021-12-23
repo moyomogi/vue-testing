@@ -1,64 +1,80 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html>
 
 <head>
 
   <meta charset="utf-8">
   <title>Vue Testing</title>
-  <meta name="keywords" content="vue vuejs testing" />
   <meta name="description" content="Vue.js のテスト" />
-
   <link rel="icon" href="assets/favicon.ico" type="image/vnd.microsoft.icon">
-
   <script src="https://unpkg.com/vue@next"></script>
-
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
     integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5"
     crossorigin="anonymous">
-
-  <link href="assets/style.css" rel="stylesheet" type="text/css">
+  <link href="assets/index.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 
   <header>
-    <a href="#">
-      <h1>Vue Testing</h1>
-    </a>
-    <a href="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml">
-      <img src="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml/badge.svg">
-    </a>
-    <a href="https://github.com/moyomogi/vue-testing">
-      <img src="https://img.shields.io/github/last-commit/moyomogi/vue-testing">
-    </a>
-  </header>
-  <br>
-
-  <div id="right">
-
-    <!-- CONTENTS -->
-    <h2>CONTENTS</h2>
-    <div class="right-link pure-menu custom-restricted-width">
-      <ul class="pure-menu-list">
-        <li class="pure-menu-item pure-menu-selected">
-          <a href="#advertisement" class="pure-menu-link">advertisement</a>
-        </li>
-        <li class="pure-menu-item">
-          <a href="#counter" class="pure-menu-link">counter</a>
-        </li>
-        <li class="pure-menu-item">
-          <a href="#prime-factorize" class="pure-menu-link">prime-factorize</a>
-        </li>
-        <li class="pure-menu-item">
-          <a href="#calc-gcd-and-lcm" class="pure-menu-link">calc-gcd-and-lcm</a>
-        </li>
-      </ul>
+    <img src="assets/header_trimmed.png" width="1920" height="184"><div class="hamburger-menu">
+      <input type="checkbox" id="menu-btn-check">
+      <label for="menu-btn-check" class="menu-btn"></label>
+      <div class="menu-content">
+        <ul>
+          <li>
+            <a href="#">メニューリンク1</a>
+          </li>
+          <li>
+            <a href="#">メニューリンク2</a>
+          </li>
+          <li>
+            <a href="#">メニューリンク3</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-  </div>
+  </header>
 
   <div class="content">
+
+    <div id="right">
+
+      <!-- CONTENTS -->
+      <h2>CONTENTS</h2>
+      <div class="right-link pure-menu custom-restricted-width">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item pure-menu-selected">
+            <a href="#advertisement" class="pure-menu-link">advertisement</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="#counter" class="pure-menu-link">counter</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="#prime-factorize" class="pure-menu-link">prime-factorize</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="#calc-gcd-and-lcm" class="pure-menu-link">calc-gcd-and-lcm</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <a href="#">
+      <h1 style="font-family: 'pirulen_rg';">Vue Testing</h1>
+    </a>
+    <a href="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml" target="_blank">
+      <img src="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml/badge.svg">
+    </a>
+    <a href="https://github.com/moyomogi/vue-testing" target="_blank">
+      <img src="https://img.shields.io/github/last-commit/moyomogi/vue-testing">
+    </a>
+    <a href="https://github.com/moyomogi/vue-testing/blob/master/LICENSE" target="_blank">
+      <img src="https://img.shields.io/badge/license-CC0-blue">
+    </a>
 
     <!-- advertisement -->
     <div id="advertisement">
@@ -158,9 +174,11 @@
         </tbody>
       </table>
     </div>
-    <br>
 
   </div>
+  <footer>
+    Copyright &copy; 2021 Computer House Random
+  </footer>
 
   <script language="javascript" type="text/javascript">
 
@@ -248,7 +266,7 @@
           this.isLarge = this.a > 100000000000000 || this.b > 100000000000000
           if (this.isLarge) return 0
           const g = myGcd(this.a, this.b)
-          return g == 0 ? 0 : this.a * this.b / g
+          return g == 0 ? 0 : this.a / g * this.b
         }
       }
     }).mount('#calc-gcd-and-lcm')
