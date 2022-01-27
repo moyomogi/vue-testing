@@ -4,6 +4,7 @@
   "description": "Test Vue.js.",
   "author": "yomo",
   "engines": {
+    "node": "12.x.x",
     "npm": "6.x.x"
   },
   "scripts": {

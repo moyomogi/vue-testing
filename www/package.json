@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/rustwasm/create-wasm-app#readme",
   "engines": {
+    "node": "12.x.x",
     "npm": "6.x.x"
   },
   "dependencies": {
