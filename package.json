@@ -1,0 +1,14 @@
+{
+  "name": "vue-testing",
+  "version": "0.1.0",
+  "description": "Test Vue.js.",
+  "author": "yomo",
+  "engines": {
+    "node": "12.x.x",
+    "npm": "8.x.x"
+  },
+  "scripts": {
+    "postinstall": "cd www && sudo npm install && npm run build",
+    "start": "cd www && npm run start"
+  }
+}
