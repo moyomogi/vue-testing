@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>wasm-pack</title>
-    <style>
-      body {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      #fps {
-        white-space: pre;
-        font-family: monospace;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="fps"></div>
-    <button id="play-pause"></button>
-    <canvas id="game-of-life-canvas"></canvas>
-    <script src="./bootstrap.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>wasm-pack</title>
+  <meta name="description" content="Vue.js のテスト" />
+  <link rel="icon" href="assets/favicon.ico" type="image/vnd.microsoft.icon">
+  <script src="./bootstrap.js"></script>
+  <link href="assets/index.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="fps"></div>
+  <button id="play-pause"></button>
+  <canvas id="game-of-life-canvas"></canvas>
+  <div id="links">
+    <a href="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml">
+      <img src="https://github.com/moyomogi/vue-testing/actions/workflows/cd.yml/badge.svg">
+    </a>
+    <a href="https://github.com/moyomogi/vue-testing">
+      <img src="https://img.shields.io/github/last-commit/moyomogi/vue-testing">
+    </a>
+    <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja">
+      <img src="https://img.shields.io/badge/license-CC0-blue">
+    </a>
+  </div>
+</body>
+
 </html>
