@@ -10,5 +10,13 @@
   "scripts": {
     "build": "cd www && npm run build",
     "start": "cd www && npm run start"
+  },
+  "dependencies": {
+    "webpack": "^4.46.0",
+    "wasm-game-of-life": "file:../pkg"
+  },
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-dev-server": "^3.1.5"
   }
 }
