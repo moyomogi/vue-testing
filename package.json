@@ -8,7 +8,7 @@
     "npm": "8.x.x"
   },
   "scripts": {
-    "postinstall": "cd www && sudo npm install && npm run build",
+    "build": "cd www && npm run build",
     "start": "cd www && npm run start"
   }
 }
