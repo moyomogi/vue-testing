@@ -9,5 +9,8 @@
   },
   "scripts": {
     "start": "cd www && node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
