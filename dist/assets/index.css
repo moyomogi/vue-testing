@@ -1,0 +1,64 @@
+@font-face {
+	font-family: 'pirulen_rg';
+	src: url(pirulen_rg.ttf);
+}
+html {
+  background-image: url("bg.svg");
+  font-family: 'Noto Serif Japanese', sans-serif;
+}
+
+/* ここから .content */
+
+.content {
+  display: block;
+  background-color: #dff;
+  width: 720px;
+  margin: 48px auto 48px;
+  padding: 14px 28px 42px;
+}
+
+#right {
+  float: right;
+  width: 165px;
+  padding: 7px 24px;
+}
+
+a {
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+  padding: 20px 0;
+  color: #00caaf;
+}
+
+td {
+  background-color: #ff0000;
+}
+
+.demo {
+  font-family: sans-serif;
+  background-color: #fff;
+  border: 1px solid #222;
+  border-radius: 2px;
+  padding: 20px 30px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  user-select: none;
+  overflow-x: auto;
+}
+
+/* ここまで .content */
+/* ここから footer */
+
+footer {
+  border: 1px #eee;
+  border-style: solid none none none;
+  display: block;
+  padding: 24px 0;
+  text-align:center;
+  background-color: #111;
+  color:#eee;
+}
+
+/* ここまで footer */
